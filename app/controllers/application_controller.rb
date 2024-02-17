@@ -4,7 +4,13 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permited_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name last_name rut phone])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name last_name rut phone])
+    # Check if it is User or Nutritionist
+    if resource_class == User
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name last_name rut phone])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name last_name rut phone])
+    elsif resource_class == Nutritionist
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name last_name rut phone academic_title company])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name last_name rut phone academic_title company])
+    end
   end
 end

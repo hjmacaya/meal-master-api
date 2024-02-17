@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  # Nutritionists routes
+  devise_for :nutritionists, path: 'nutritionists', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  }, controllers: {
+    sessions: 'nutritionists/sessions',
+    registrations: 'nutritionists/registrations'
+  }
+
   # Users routes
-  devise_for :users, path: '', path_names: {
+  devise_for :users, path: 'users', path_names: {
     sign_in: 'login',
     sign_out: 'logout',
     registration: 'signup'
