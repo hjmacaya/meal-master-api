@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Nutritionists routes
+  devise_for :nutritionists, path: 'nutritionists', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  }, controllers: {
+    sessions: 'nutritionists/sessions',
+    registrations: 'nutritionists/registrations'
+  }
+
+  # Users routes
+  devise_for :users, path: 'users', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  }, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
