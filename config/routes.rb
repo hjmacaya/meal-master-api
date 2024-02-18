@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   # Nesting in_bodies routes under nutritionists
   namespace :nutritionists do
-    resources :in_bodies, only: %i[index create update]
+    resources :in_bodies, only: %i[index create update destroy]
   end
 
   # Nesting in_bodies routes under users

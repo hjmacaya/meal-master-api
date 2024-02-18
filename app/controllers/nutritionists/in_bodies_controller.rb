@@ -1,58 +1,33 @@
 class Nutritionists::InBodiesController < ApplicationController
   before_action :authenticate_nutritionist!
-  before_action :set_in_body, only: %i[update]
+  before_action :set_in_body, only: %i[update destroy]
 
   def index
     @in_bodies = current_nutritionist.in_bodies
-    render json: {
-      status: {
-        code: 200,
-        message: 'Successfully fetched nutrionists in_bodies.'
-      },
-      data: @in_bodies
-    }
+    render json: @in_bodies, status: :ok
   end
 
   def create
     @in_body = InBody.new(in_body_params)
     @in_body.nutritionist = current_nutritionist
     if @in_body.save
-      render json: {
-        status: {
-          code: 200,
-          message: 'Successfully created in_body.'
-        },
-        data: @in_body
-      }
+      render json: @in_body, status: :created
     else
-      render json: {
-        status: {
-          code: 422,
-          message: 'In_body could not be created.'
-        },
-        errors: @in_body.errors
-      }
+      render json: @in_body.errors, status: :unprocessable_entity
     end
   end
 
   def update
     if @in_body.update(in_body_params)
-      render json: {
-        status: {
-          code: 200,
-          message: 'Successfully updated in_body.'
-        },
-        data: @in_body
-      }
+      render json: @in_body, status: :ok
     else
-      render json: {
-        status: {
-          code: 422,
-          message: 'In_body could not be updated.'
-        },
-        errors: @in_body.errors
-      }
+      render json: @in_body.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @in_body.destroy
+    head :no_content
   end
 
   private
