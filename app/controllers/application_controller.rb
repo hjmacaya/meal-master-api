@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
   before_action :configure_permited_parameters, if: :devise_controller?
+  # before_action :authenticate_user!
+  # before_action :authenticate_nutritionist!
 
   protected
 

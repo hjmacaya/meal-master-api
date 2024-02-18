@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  nutririonist: one
+  height: 1.5
+  weight: 1.5
+  age: 1
+  genre: MyString
+  date: 2024-02-18
+  body_water: 1.5
+  protein_mass: 1.5
+  minerals_mass: 1.5
+  body_fat: 1.5
+  lean_mass: 1.5
+  mass_free_of_fat: 1.5
+  muscle_mass: 1.5
+  imc: 1.5
+  percentage_body_fat: 1.5
+  right_arm: 1.5
+  left_arm: 1.5
+  trunk_float: MyString
+  right_leg: 1.5
+  left_leg: 1.5
+  aec: 1.5
+
+two:
+  user: two
+  nutririonist: two
+  height: 1.5
+  weight: 1.5
+  age: 1
+  genre: MyString
+  date: 2024-02-18
+  body_water: 1.5
+  protein_mass: 1.5
+  minerals_mass: 1.5
+  body_fat: 1.5
+  lean_mass: 1.5
+  mass_free_of_fat: 1.5
+  muscle_mass: 1.5
+  imc: 1.5
+  percentage_body_fat: 1.5
+  right_arm: 1.5
+  left_arm: 1.5
+  trunk_float: MyString
+  right_leg: 1.5
+  left_leg: 1.5
+  aec: 1.5
