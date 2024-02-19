@@ -1,6 +1,6 @@
 class Nutritionists::InBodiesController < ApplicationController
   before_action :authenticate_nutritionist!
-  before_action :set_in_body, only: %i[update destroy]
+  before_action :set_in_body, only: %i[update destroy show]
 
   def index
     @in_bodies = current_nutritionist.in_bodies
@@ -28,6 +28,10 @@ class Nutritionists::InBodiesController < ApplicationController
   def destroy
     @in_body.destroy
     head :no_content
+  end
+
+  def show
+    render json: @in_body, status: :ok
   end
 
   private

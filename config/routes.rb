@@ -24,12 +24,12 @@ Rails.application.routes.draw do
 
   # Nesting in_bodies routes under nutritionists
   namespace :nutritionists do
-    resources :in_bodies, only: %i[index create update destroy]
+    resources :in_bodies, only: %i[index create update destroy show]
   end
 
   # Nesting in_bodies routes under users
   namespace :users do
-    resources :in_bodies, only: %i[index]
+    resources :in_bodies, only: %i[index show]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
