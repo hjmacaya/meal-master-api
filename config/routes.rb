@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   # In bodies routes
   resources :in_bodies, only: %i[index create]
 
-  # Nesting in_bodies routes under nutritionists
+  # Nesting in_bodies, guidelines routes under nutritionists
   namespace :nutritionists do
     resources :in_bodies, only: %i[index create update destroy show]
+    resources :guidelines, only: %i[index create update destroy show]
   end
 
-  # Nesting in_bodies routes under users
+  # Nesting in_bodies, guidelines routes under users
   namespace :users do
     resources :in_bodies, only: %i[index show]
+    resources :guidelines, only: %i[index show]
   end
 
   # Meals routes

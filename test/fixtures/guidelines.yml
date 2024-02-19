@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nutritionist: one
+  user: one
+  calories_requirement_per_day: 1.5
+
+two:
+  nutritionist: two
+  user: two
+  calories_requirement_per_day: 1.5

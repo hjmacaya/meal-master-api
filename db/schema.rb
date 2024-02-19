@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_19_042442) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_075412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guidelines", force: :cascade do |t|
+    t.bigint "nutritionist_id", null: false
+    t.bigint "user_id", null: false
+    t.float "calories_requirement_per_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nutritionist_id"], name: "index_guidelines_on_nutritionist_id"
+    t.index ["user_id"], name: "index_guidelines_on_user_id"
+  end
 
   create_table "in_bodies", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -53,6 +63,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_042442) do
     t.float "dairy_portions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "meal_type"
+    t.bigint "guideline_id"
+    t.index ["guideline_id"], name: "index_meals_on_guideline_id"
   end
 
   create_table "nutritionists", force: :cascade do |t|
@@ -93,6 +106,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_042442) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "guidelines", "nutritionists"
+  add_foreign_key "guidelines", "users"
   add_foreign_key "in_bodies", "nutritionists"
   add_foreign_key "in_bodies", "users"
+  add_foreign_key "meals", "guidelines"
 end
