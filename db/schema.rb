@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_171558) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_025700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_171558) do
     t.float "percentage_body_fat"
     t.float "right_arm"
     t.float "left_arm"
-    t.string "trunk_float"
+    t.float "trunk"
     t.float "right_leg"
     t.float "left_leg"
     t.float "aec"
