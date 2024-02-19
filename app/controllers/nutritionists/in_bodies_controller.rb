@@ -33,7 +33,7 @@ class Nutritionists::InBodiesController < ApplicationController
   private
 
   def in_body_params
-    params.require(:in_body).permit(:weight, :height, :age, :genre, :date, :body_water, :protein_mass, :minerals_mass, :body_fat, :muscle_mass, :imc, :percentage_body_fat, :right_arm, :left_arm, :right_leg, :left_leg, :aec, :user_id)
+    params.require(:in_body).permit(:weight, :height, :age, :genre, :date, :body_water, :protein_mass, :minerals_mass, :body_fat, :muscle_mass, :lean_mass, :mass_free_of_fat, :right_arm, :left_arm, :right_leg, :left_leg, :user_id)
   end
 
   def set_in_body
