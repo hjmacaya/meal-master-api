@@ -15,4 +15,10 @@ class ApplicationController < ActionController::API
       devise_parameter_sanitizer.permit(:account_update, keys: %i[name last_name rut phone academic_title company])
     end
   end
+
+  def authenticate_user_or_nutritionist!
+    unless current_user || current_nutritionist
+      render json: { error: 'You must sign in as user or nutritionist' }, status: :unauthorized
+    end
+  end
 end
