@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cereals_portions: 1.5
+  protein_portions: 1.5
+  vegetables_portions: 1.5
+  fruit_portions: 1.5
+  fat_portions: 1.5
+  dairy_portions: 1.5
+
+two:
+  name: MyString
+  cereals_portions: 1.5
+  protein_portions: 1.5
+  vegetables_portions: 1.5
+  fruit_portions: 1.5
+  fat_portions: 1.5
+  dairy_portions: 1.5

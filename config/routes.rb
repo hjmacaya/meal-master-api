@@ -18,6 +18,23 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
+  # In bodies routes
+  resources :in_bodies, only: %i[index create]
+
+  # Nesting in_bodies routes under nutritionists
+  namespace :nutritionists do
+    resources :in_bodies, only: %i[index create update destroy show]
+  end
+
+  # Nesting in_bodies routes under users
+  namespace :users do
+    resources :in_bodies, only: %i[index show]
+  end
+
+  # Meals routes
+  resources :meals, only: %i[index create update destroy show]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
